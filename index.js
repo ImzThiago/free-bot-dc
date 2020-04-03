@@ -2,16 +2,24 @@ const Discord = require('discord.js');
 const config = require('./config.json')
 const bot = new Discord.Client();
 
-
+//Qualquer duvida fale comigo no meu Discord: Anjo Dos Pandas#2020
 
 bot.on('ready', message => {
 console.log("Olá Mundo!")
+bot.user.setPresence("Estou online!", type: "PLAYING")
 })
 
 bot.on("message", async message => {
   
   let args = message.content.split(" ");
   let prefix = config.prefix;
+  
+  //Anti-Invite DISCORD
+  if(message.content.includes('discord.gg/')){
+  message.delete()
+    message.channel.send( + " Hey! você não pode divulgar convites de outros servidores.")
+}
+ 
   
   
   if(message.content.startsWith(prefix + "botinfo")){
