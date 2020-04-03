@@ -1,0 +1,16 @@
+{
+  "name": "Simple Bot",
+  "version": "2.5.2",
+  "description": "coloca uma descrição",
+  "main": "index",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "8.12.0"
+  },
+  "author": "Seu DC",
+  "dependencies": {
+    "discord.js": "^11.5.1",
+  }
+}
