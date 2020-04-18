@@ -40,6 +40,16 @@ bot.on("message", async message => {
 }
 })
 
+if(message.content.startsWith(prefix + "limpar")){
+  if(message.member.hasPermission(["MANAGE_MESSAGES"]) return message.channel.send("Você precisa ter permissão de gerenciar as mensagens.")
+  let valor = parseInt(args[0], 10)
+   
+  if(!valor || valor < 1 || valor > 100)
+  let apagar = message.channel.fetchMessage({limit: valor})
+  message.channel.bulkDelete(apagar).catch(Err => message.channel.send("Houve um erro ao executar esse comando: " + err +""))
+  message.channel.send("Chat Limpo! =D")
+}
+
 if(message.content.startsWith(prefix + "kick")){
 if(!message.member.hasPermission(["KICK_MEMBERS"])) return message.channel.send(message.author + " você precisar ter a permissão de kickar membros.");
   let usuario = message.mentions.members.first();
@@ -61,6 +71,7 @@ if(!message.member.hasPermission(["KICK_MEMBERS"])) return message.channel.send(
   usuario.kick("Usuario expulso pelo motivo: " + motivo)
   message.channel.send("O usuario foi expulso com sucesso!")
 }
+
 
 }
   
